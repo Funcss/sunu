@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="冉续 <remxu@qq.com>">
+    <link rel="stylesheet" href="dest/css/ui.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/style.css" media="screen" charset="utf-8">
+    <script src="dest/js/scripts.min.js"></script>
+    <title>SunuHIE</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">SunuHIE集成平台监控系统 <small>v1.0</small></h1>
+        </header>
+        <section class="main">
+            <nav class="main_nav">
+                <ul class="main_nav_list main_nav_top">
+                    <li>
+                        <a href="" class="main_nav_item waves-light main_nav_dashboard"></a>
+                        <span>Dashboard</span>
+                    </li>
+                    <li>
+                        <a href="" class="main_nav_item waves-light main_nav_processor"></a>
+                        <span>Processor Ins</span>
+                    </li>
+                    <li>
+                        <a href="" class="main_nav_item waves-light main_nav_interface">
+                        </a>
+                        <span>Interface</span>
+                    </li>
+                    <li>
+                        <a href="" class="main_nav_item waves-light main_nav_message active">
+                        </a>
+                        <span>Message</span>
+                    </li>
+                    <li>
+                        <a href="" class="main_nav_item waves-light main_nav_target">
+                        </a>
+                        <span>Target EP Interface</span>
+                    </li>
+                </ul>
+                <ul class="main_nav_list main_nav_bottom">
+                    <li>
+                        <a href="###" class="main_nav_item waves-light main_nav_set"></a>
+                        <span>设置</span>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main_container">
+                <div class="main_flexbox">
+                    <section class="main-sidebar">
+                        <div class="main-sidebar_work">
+                            <div class="main-sidebar_work_head">
+                                <div class="btn-group btn-group-block msg-filter_tabs">
+                                    <a class="btn btn-default btn-sm active">已执行完毕消息</a>
+                                    <a class="btn btn-default btn-sm">未执行完成消息</a>
+                                </div>
+                            </div>
+                            <div class="main-sidebar_work_body">
+                                <form class="main-sidebar_form">
+                                    <fieldset>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                <span class="text-danger">*</span> 缓存时间（天）
+                                                <!-- 必填，日期选择器 -->
+                                                <!-- 除了缓存时间为必填，其他为选填 -->
+                                            </label>
+                                            <div class="range-box">
+                                                起始日：
+                                                <input type="date">
+                                            </div>
+                                            <div class="range-box">
+                                                终止日：
+                                                <input type="date">
+                                            </div>
+                                            <p class="hint">*为必填项。</p>
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                消息处理句柄
+                                                <!-- 字符串-->
+                                            </label>
+                                            <input type="text" class="has-error" placeholder="字符串">
+                                            <p class="hint text-danger">has-error状态。</p>
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                消息名称
+                                                <!-- 字符串-->
+                                            </label>
+                                            <input type="text" placeholder="字符串">
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                消息代码
+                                                <!-- 字符串-->
+                                            </label>
+                                            <input type="text" placeholder="字符串">
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                消息版本
+                                                <!-- 数字，浮点型-->
+                                            </label>
+                                            <input type="number" min="0" name="" placeholder="请输入版本号">
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                消息优先级
+                                                <!-- 整数-->
+                                            </label>
+                                            <input type="number" min="0" name="" placeholder="请输入优先级">
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                消息处理方式
+                                                <!-- radio 同步S&异步A，传值时用 S 和 A -->
+                                            </label>
+                                            <div class="form_item">
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio1" checked="">全部
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio1">同步
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio1">异步
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form_item msg_filter_tab2">
+                                            <label class="main-sidebar_form_title">
+                                                出发集成项目数（个）
+                                                <!-- 数字范围值-->
+                                            </label>
+                                            <div class="range-box">
+                                                <input type="number" min="0" placeholder="-">
+                                                <span>至</span>
+                                                <input type="number" min="0" placeholder="-">
+                                            </div>
+                                        </div>
+                                        <div class="form_item msg_filter_tab2">
+                                            <label class="main-sidebar_form_title">
+                                                消息传递给接口数量（个）
+                                                <!-- 数字范围值-->
+                                            </label>
+                                            <div class="range-box">
+                                                <input type="number" min="0" placeholder="-">
+                                                <span>至</span>
+                                                <input type="number" min="0" placeholder="-">
+                                            </div>
+                                        </div>
+                                        <div class="form_item msg_filter_tab2">
+                                            <label class="main-sidebar_form_title">
+                                                锁定状态
+                                            </label>
+                                            <div class="form_item">
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio2" checked="">全部
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio2">是
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio2">否
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                消息处理总耗时（秒）
+                                            </label>
+                                            <div class="range-box">
+                                                <input type="number" min="0" placeholder="-">
+                                                <span>至</span>
+                                                <input type="number" min="0" placeholder="-">
+                                            </div>
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                是否超时
+                                            </label>
+                                            <div class="form_item">
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio3" checked="">全部
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio3">是
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio3">否
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                执行结果
+                                            </label>
+                                            <div class="form_item">
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio4" checked="">全部
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio4">正常
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio4">异常
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="main-sidebar_work_foot">
+                                <a class="btn btn-default">清空</a>
+                                <a class="btn btn-info" onclick="$('.loading-indicator').fadeIn(200).delay(4000).fadeOut(200)">确定并筛选</a>
+                                <a class="btn btn-info toast-btn">错误提示</a>
+                                <!-- .loading-indicator为加载刷新转圈，触发调用方法：loading_start()，结束方法：loading_end() -->
+                                <!--
+                                <a class="btn btn-info toast-btn">错误提示</a>
+                                 ⤴错误提示示范按钮 -->
+                                <!-- 这里提交按钮做个判断，如果用户输入了筛选字段必填项，用户点击刷新出结果，如果未输入必填项，通过toast()调用错误提示用户，必填项变红has-error状态 -->
+                            </div>
+                        </div>
+                    </section>
+                    <section class="main_content">
+                        <div class="panel">
+                            <nav class="panel_head">
+                                <div class="panel_head_start">
+                                    <h2>筛选结果（32条）</h2>
+                                    <!-- 筛选结果暂定8条为一页，可翻页 -->
+                                </div>
+                            </nav>
+                            <div class="panel_container">
+                                <div class="panel_container_content">
+                                    <div class="table-fixedCol-box">
+                                        <!-- 注意本表格分为两个table部分：主体可跟随滚动部分和固定不滚动部分，分为两个table循环 -->
+                                        <div class="table-scroll-x table-fixedCol-box_auto">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>缓存时间</th>
+                                                        <th>消息处理句柄</th>
+                                                        <th>消息ID</th>
+                                                        <th>消息名称</th>
+                                                        <th>消息代码</th>
+                                                        <th>消息版本</th>
+                                                        <th>消息优先级</th>
+                                                        <th>消息处理方式</th>
+                                                        <th>触发集成项目数（个）</th>
+                                                        <th>消息传递给接口数量（个）</th>
+                                                        <th>消息处理完毕时间</th>
+                                                        <th>锁定状态</th>
+                                                        <th>锁定时间</th>
+                                                        <th>解锁时间</th>
+                                                        <th>消息处理总共用时</th>
+                                                        <th>是否超时</th>
+                                                        <th>执行结果</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>2017-4-21至2017-4-28</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2017-4-21至2017-4-28</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2017-4-21至2017-4-28</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2017-4-21至2017-4-28</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2017-4-21至2017-4-28</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2017-4-21至2017-4-28</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2017-4-21至2017-4-28</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2017-4-21至2017-4-28</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- 下面表格为右侧不跟随滚动的固定列 -->
+                                        <table class="table table-hover table-fixedCol-box_col">
+                                            <thead>
+                                                <tr>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>
+                                                        <button class="btn btn-default btn-sm lightbox_btn tooltip-hover" title="查看消息内容"><i class="icon-email"></i></button>
+                                                        <button class="btn btn-default btn-sm tooltip-hover" onclick="lightbox_show()" title="查看执行项目"><i class="icon-assignment"></i></button>
+                                                        <!-- 点击查看执行项目页面下面加载「执行项目」表格，也有可能将其放入弹出层，待甲方确定方式 -->
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <button class="btn btn-default btn-sm lightbox_btn tooltip-hover" title="查看消息内容"><i class="icon-email"></i></button>
+                                                        <button class="btn btn-default btn-sm tooltip-hover" onclick="lightbox_show()" title="查看执行项目"><i class="icon-assignment"></i></button>
+                                                        <!-- 点击查看执行项目页面下面加载「执行项目」表格，也有可能将其放入弹出层，待甲方确定方式 -->
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <button class="btn btn-default btn-sm lightbox_btn tooltip-hover" title="查看消息内容"><i class="icon-email"></i></button>
+                                                        <button class="btn btn-default btn-sm tooltip-hover" onclick="lightbox_show()" title="查看执行项目"><i class="icon-assignment"></i></button>
+                                                        <!-- 点击查看执行项目页面下面加载「执行项目」表格，也有可能将其放入弹出层，待甲方确定方式 -->
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <button class="btn btn-default btn-sm lightbox_btn tooltip-hover" title="查看消息内容"><i class="icon-email"></i></button>
+                                                        <button class="btn btn-default btn-sm tooltip-hover" onclick="lightbox_show()" title="查看执行项目"><i class="icon-assignment"></i></button>
+                                                        <!-- 点击查看执行项目页面下面加载「执行项目」表格，也有可能将其放入弹出层，待甲方确定方式 -->
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <button class="btn btn-default btn-sm lightbox_btn tooltip-hover" title="查看消息内容"><i class="icon-email"></i></button>
+                                                        <button class="btn btn-default btn-sm tooltip-hover" onclick="lightbox_show()" title="查看执行项目"><i class="icon-assignment"></i></button>
+                                                        <!-- 点击查看执行项目页面下面加载「执行项目」表格，也有可能将其放入弹出层，待甲方确定方式 -->
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <button class="btn btn-default btn-sm lightbox_btn tooltip-hover" title="查看消息内容"><i class="icon-email"></i></button>
+                                                        <button class="btn btn-default btn-sm tooltip-hover" onclick="lightbox_show()" title="查看执行项目"><i class="icon-assignment"></i></button>
+                                                        <!-- 点击查看执行项目页面下面加载「执行项目」表格，也有可能将其放入弹出层，待甲方确定方式 -->
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <button class="btn btn-default btn-sm lightbox_btn tooltip-hover" title="查看消息内容"><i class="icon-email"></i></button>
+                                                        <button class="btn btn-default btn-sm tooltip-hover" onclick="lightbox_show()" title="查看执行项目"><i class="icon-assignment"></i></button>
+                                                        <!-- 点击查看执行项目页面下面加载「执行项目」表格，也有可能将其放入弹出层，待甲方确定方式 -->
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <button class="btn btn-default btn-sm lightbox_btn tooltip-hover" title="查看消息内容"><i class="icon-email"></i></button>
+                                                        <button class="btn btn-default btn-sm tooltip-hover" onclick="lightbox_show()" title="查看执行项目"><i class="icon-assignment"></i></button>
+                                                        <!-- 点击查看执行项目页面下面加载「执行项目」表格，也有可能将其放入弹出层，待甲方确定方式 -->
+                                                    </th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="panel_foot">
+                                        <div class="panel_foot_start"></div>
+                                        <div class="panel_foot_end">
+                                            <div class="panel_foot">
+                                                <div class="panel_foot_start"></div>
+                                                <div class="panel_foot_end">
+                                                    <div class="btn-group-bar">
+                                                        <div class="btn-group">
+                                                            <a class="btn btn-sm btn-default">上一页</a>
+                                                        </div>
+                                                        <div class="btn-group">
+                                                            <a class="btn btn-sm btn-default active">1</a>
+                                                            <a class="btn btn-sm btn-default">2</a>
+                                                            <a class="btn btn-sm btn-default">3</a>
+                                                            <a class="btn btn-sm btn-default">4</a>
+                                                        </div>
+                                                        <div class="btn-group">
+                                                            <a class="btn btn-sm btn-default">下一页</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="mask">
+        <!-- 弹出窗 -->
+        <div class="lightbox">
+            <!-- 注意，只有弹出层是表格的情况下才使用.lightbox_table -->
+            <div class="lightbox_head">
+                <h3>执行项目情况</h3>
+                <a href="###" class="lightbox_close"></a>
+            </div>
+            <div class="lightbox_body">
+                <div class="panel_container_item">
+                    <div class="panel_container_content">
+                        <div class="panel_container_content">
+                            <div class="table-scroll-x">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>触发集成项目名称</th>
+                                            <th>消息传递给接口数量（个）</th>
+                                            <!-- ⤴️仅在查看已执行完毕消息时显示 -->
+                                            <th>线程开始处理时间</th>
+                                            <th>线程结束处理时间</th>
+                                            <th>总耗时（秒）</th>
+                                            <th>消息处理结果状态</th>
+                                            <th>CPU消耗（%）</th>
+                                            <th>执行状态</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>name</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>name</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>name</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lightbox_foot">
+                <div class="lightbox_foot_left">
+                    <button class="btn btn-default">取消</button>
+                </div>
+                <div class="lightbox_foot_right">
+                    <a class="btn btn-info" href="flow.html" target="_blank"><i class="icon-flow-tree"></i>&nbsp;查看集成项目执行</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="toast">
+        请输入筛选条件
+    </div>
+    <div class="loading-indicator">
+        <div class="loading">
+        </div>
+    </div>
+    <script src="dest/js/ui.js"></script>
+    <script type="text/javascript">
+    //弹出窗 
+
+    var this_lightbox;
+    var $mask = $('.mask')
+
+    function lightbox_show() {
+        $(":root").css("overflow-y", "hidden");
+        $mask.get(0).style.display = 'flex';
+        $(".lightbox").get(0).style.display = 'flex';
+    }
+
+    function lightbox() {;
+        $('.lightbox_btn').click(function() {
+            lightbox_show()
+        });
+
+        $(".mask-inner,.lightbox_close").click(function() {
+            $(".lightbox").get(0).style.display = 'none';
+            $mask.get(0).style.display = 'none';
+            $(":root").css("overflow-y", "auto");
+
+        });
+    }
+    lightbox();
+
+
+    //toast提示，用户未输入必填项时用该提示
+    $(".toast-btn").click(function() {
+        toast();
+
+    })
+    </script>
+</body>
+
+</html>

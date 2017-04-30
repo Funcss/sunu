@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="冉续 <remxu@qq.com>">
+    <link rel="stylesheet" href="dest/css/ui.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="dest/css/style.css" media="screen" charset="utf-8">
+    <script src="dest/js/scripts.min.js"></script>
+    <title>SunuHIE</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">SunuHIE集成平台监控系统 <small>v1.0</small></h1>
+        </header>
+        <section class="main">
+            <nav class="main_nav">
+                <ul class="main_nav_list main_nav_top">
+                    <li>
+                        <a href="" class="main_nav_item waves-light main_nav_dashboard"></a>
+                        <span>Dashboard</span>
+                    </li>
+                    <li>
+                        <a href="" class="main_nav_item waves-light main_nav_processor"></a>
+                        <span>Processor Ins</span>
+                    </li>
+                    <li>
+                        <a href="" class="main_nav_item waves-light main_nav_interface">
+                        </a>
+                        <span>Interface</span>
+                    </li>
+                    <li>
+                        <a href="" class="main_nav_item waves-light main_nav_message active">
+                        </a>
+                        <span>Message</span>
+                    </li>
+                    <li>
+                        <a href="" class="main_nav_item waves-light main_nav_target">
+                        </a>
+                        <span>Target EP Interface</span>
+                    </li>
+                </ul>
+                <ul class="main_nav_list main_nav_bottom">
+                    <li>
+                        <a href="###" class="main_nav_item waves-light main_nav_set"></a>
+                        <span>设置</span>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main_container">
+                <div class="main_flexbox">
+                    <section class="main-sidebar">
+                        <div class="main-sidebar_work">
+                            <div class="main-sidebar_work_head">
+                                <div class="btn-group btn-group-block msg-filter_tabs">
+                                    <a class="btn btn-default btn-sm active">已执行完毕消息</a>
+                                    <a class="btn btn-default btn-sm">未执行完成消息</a>
+                                </div>
+                            </div>
+                            <div class="main-sidebar_work_body">
+                                <form class="main-sidebar_form">
+                                    <fieldset>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                <span class="text-danger">*</span> 缓存时间（天）
+                                                <!-- 必填，日期选择器 -->
+                                                <!-- 除了缓存时间为必填，其他为选填 -->
+                                            </label>
+                                            <div class="range-box">
+                                                起始日：
+                                                <input type="date">
+                                            </div>
+                                            <div class="range-box">
+                                                终止日：
+                                                <input type="date" min="0">
+                                            </div>
+                                            <p class="hint">*必填项。</p>
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                消息处理句柄
+                                                <!-- 字符串-->
+                                            </label>
+                                            <input type="text" class="has-error" placeholder="字符串">
+                                            <p class="hint text-danger">has-error状态。</p>
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                消息名称
+                                                <!-- 字符串-->
+                                            </label>
+                                            <input type="text" placeholder="字符串">
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                消息代码
+                                                <!-- 字符串-->
+                                            </label>
+                                            <input type="text" placeholder="字符串">
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                消息版本
+                                                <!-- 数字，可能有小数点-->
+                                            </label>
+                                            <input type="number" min="0" name="" placeholder="请输入版本号">
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                消息优先级
+                                                <!-- 整数-->
+                                            </label>
+                                            <input type="number" min="0" name="" placeholder="请输入优先级">
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                消息处理方式
+                                                <!-- radio 同步S&异步A，传值时用 S 和 A -->
+                                            </label>
+                                            <div class="form_item">
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio1" checked="">全部
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio1" checked="">同步
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio1">异步
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form_item msg_filter_tab2">
+                                            <label class="main-sidebar_form_title">
+                                                出发集成项目数（个）
+                                                <!-- 数字范围值-->
+                                            </label>
+                                            <div class="range-box">
+                                                <input type="number" min="0" placeholder="-">
+                                                <span>至</span>
+                                                <input type="number" min="0" placeholder="-">
+                                            </div>
+                                        </div>
+                                        <div class="form_item msg_filter_tab2">
+                                            <label class="main-sidebar_form_title">
+                                                消息传递给接口数量（个）
+                                                <!-- 数字范围值-->
+                                            </label>
+                                            <div class="range-box">
+                                                <input type="number" min="0" placeholder="-">
+                                                <span>至</span>
+                                                <input type="number" min="0" placeholder="-">
+                                            </div>
+                                        </div>
+                                        <div class="form_item msg_filter_tab2">
+                                            <label class="main-sidebar_form_title">
+                                                锁定状态
+                                            </label>
+                                            <div class="form_item">
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio2" checked="">全部
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio2" checked="">是
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio2">否
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                消息处理总耗时（秒）
+                                            </label>
+                                            <div class="range-box">
+                                                <input type="number" min="0" placeholder="-">
+                                                <span>至</span>
+                                                <input type="number" min="0" placeholder="-">
+                                            </div>
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                是否超时
+                                            </label>
+                                            <div class="form_item">
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio3" checked="">全部
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio3" checked="">是
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio3">否
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form_item">
+                                            <label class="main-sidebar_form_title">
+                                                执行结果
+                                            </label>
+                                            <div class="form_item">
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio4" checked="">全部
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio4" checked="">正常
+                                                </label>
+                                                <label name="radio" class="radio">
+                                                    <input type="radio" name="radio4">异常
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="main-sidebar_work_foot">
+                                <a class="btn btn-default">清空</a>
+                                <a class="btn btn-info" onclick="$('.loading-indicator').fadeIn(200).delay(4000).fadeOut(200)">确定并筛选</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="main_content">
+                        <div class="panel">
+                            <nav class="panel_head">
+                                <div class="panel_head_start">
+                                    <h2>筛选结果</h2>
+                                </div>
+                            </nav>
+                            <div class="panel_container">
+                                <div class="panel_container_content">
+                                    <div class="empty-box">
+                                        请先在左侧进行筛选
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="loading-indicator">
+        <div class="loading">
+        </div>
+    </div>
+    <script src="dest/js/ui.js"></script>
+</body>
+
+</html>
